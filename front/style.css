@@ -83,8 +83,28 @@ ul li::after{
 }
 
 #linenav1{
-  background-color: #6610f2;
+  background-color: #41c238;
+  display:flex;
+  object-fit: cover;
+  width: 200%;
+  height: 5px;
 }
+
+#linenav2{
+    background-color: #d53737;
+    display:flex;
+    object-fit: cover;
+    width: 200%;
+    height: 5px;
+  }
+
+  #linenav3{
+    background-color: #fff261;
+    display:flex;
+    object-fit: cover;
+    width: 200%;
+    height: 5px;
+  }
 
 #logopoa {
     height: 50px;
