@@ -74,3 +74,17 @@ async function loadUnits(){
     document.addEventListener('DOMContentLoaded', ()=>{
     loadUnits();
     });
+
+    async function atualizarDashboard() {
+        const dados = await buscarDados();
+        atualizarCards(dados);
+        graficoTipos(dados);
+        exibirMapa(dados);
+      }
+      
+      // primeira execução
+      atualizarDashboard();
+      
+      // atualiza a cada 30 segundos
+      setInterval(atualizarDashboard, 30000);
+      
