@@ -125,21 +125,45 @@ header{
 
 }
 
+#filtroTipo {
+
+    margin: 20px;
+    padding: 10px;
+    background-color: #f8ff94;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#filtroTipo label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#filtroTipo select {
+    padding: 5px;
+    border-radius: 4px;
+}
+
 #map{
     height: var(--map-height);
     min-height: 320px;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
     }
 
 #table-card {
     position: relative;
-    margin: 20px;
+    margin: 10px;
     background-color: #fff;
-    padding: 15px;
+    padding: 50px;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
 #cards {
@@ -156,13 +180,20 @@ header{
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
+    padding: 10px;
     width: 30%;
     text-align: center;
+    display: flex;
  }
   
 .table-fixed{
-   max-height: 220px; overflow:auto; 
+   width: 210px;
+   max-height: 460px;
+   table-layout: fixed;
+}
+.div.table-responsive.table-fixed {
+   width: 100%;
+   border-collapse: collapse;
 }
 
 
