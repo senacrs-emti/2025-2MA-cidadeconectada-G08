@@ -3,14 +3,14 @@ USE geosaudepoa;
 
 CREATE TABLE hospitais (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_hospital VARCHAR(150),
+    nome VARCHAR(150),
     endereco VARCHAR(255),
     telefone VARCHAR(25),
     latitude DECIMAL(9,6),
     longitude DECIMAL(9,6)
 );
 
-INSERT INTO hospitais (nome_hospital, endereco, telefone, latitude, longitude) VALUES
+INSERT INTO hospitais (nome, endereco, telefone, latitude, longitude) VALUES
 ('Hospital de Clínicas de Porto Alegre', 'Rua Ramiro Barcelos, 2350 – Santa Cecília, Porto Alegre – RS', '(51) 3359-8000', -30.0311, -51.2065),
 ('Hospital Moinhos de Vento', 'Rua Ramiro Barcelos, 910 – Moinhos de Vento, Porto Alegre – RS', '(51) 3314-3434', -30.0276, -51.2099),
 ('Hospital São Lucas da PUCRS', 'Av. Ipiranga, 6690 – Partenon, Porto Alegre – RS', '(51) 3320-3000', -30.0592, -51.1716),
@@ -20,14 +20,14 @@ INSERT INTO hospitais (nome_hospital, endereco, telefone, latitude, longitude) V
 
 CREATE TABLE upas (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_upa VARCHAR(150),
+    nome VARCHAR(150),
     endereco VARCHAR(255),
     telefone VARCHAR(25),
     latitude DECIMAL(9,6),
     longitude DECIMAL(9,6)
 );
 
-INSERT INTO upas (nome_upa, endereco, telefone, latitude, longitude) VALUES
+INSERT INTO upas (nome, endereco, telefone, latitude, longitude) VALUES
 ('UPA Zona Norte', 'Av. Assis Brasil, 6500 – Sarandi, Porto Alegre – RS', '(51) 3289-0000', -30.0048, -51.1595),
 ('UPA Cruzeiro', 'Av. Cruzeiro do Sul, 600 – Cruzeiro, Porto Alegre – RS', '(51) 3289-0010', -30.0924, -51.2292),
 ('UPA Moacyr Scliar (Zona Noroeste)', 'Av. Baltazar de Oliveira Garcia, 2132 – Rubem Berta, Porto Alegre – RS', '(51) 3289-0020', -30.0001, -51.1358),
@@ -37,14 +37,14 @@ INSERT INTO upas (nome_upa, endereco, telefone, latitude, longitude) VALUES
 
 CREATE TABLE ubs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_ubs VARCHAR(150),
+    nome VARCHAR(150),
     endereco VARCHAR(255),
     telefone VARCHAR(25),
     latitude DECIMAL(9,6),
     longitude DECIMAL(9,6)
 );
 
-INSERT INTO ubs (nome_ubs, endereco, telefone, latitude, longitude) VALUES
+INSERT INTO ubs (nome, endereco, telefone, latitude, longitude) VALUES
 ('UBS Santa Cecília', 'Rua Santa Cecília, 235 – Santa Cecília, Porto Alegre – RS', '(51) 3289-8001', -30.0312, -51.2021),
 ('UBS IAPI', 'Rua Três de Abril, 90 – Passo d’Areia, Porto Alegre – RS', '(51) 3289-8002', -30.0074, -51.1713),
 ('UBS Navegantes', 'Rua Santo Alfredo, 300 – Navegantes, Porto Alegre – RS', '(51) 3289-8003', -30.0021, -51.2058),
