@@ -172,15 +172,6 @@ const unidadesSaude = [
         longitude: -51.1534 
     },
     { 
-        nome: "Clínica da Família Campo Novo", 
-        tipo: "UBS", 
-        bairro: "Bela Vista", 
-        endereco: "Rua Leopoldo Scharlé, 1200", 
-        telefone: null, 
-        latitude: -30.0417, 
-        longitude: -51.1905 
-    },
-    { 
         nome: "UBS Humaitá", 
         tipo: "UBS", 
         bairro: "Humaitá", 
@@ -248,14 +239,5 @@ const unidadesSaude = [
         latitude: -30.0544, 
         longitude: -51.0992 
     },
-    { 
-        nome: "UBS Azenha", 
-        tipo: "UBS", 
-        bairro: "Azenha", 
-        endereco: "Rua Doutor Timoteo, 800", 
-        telefone: null, 
-        latitude: -30.0277, 
-        longitude: -51.187 
-    }
   ];
   
