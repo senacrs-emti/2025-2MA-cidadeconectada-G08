@@ -20,7 +20,7 @@ INSERT INTO upas (nome, endereco, telefone, latitude, longitude) VALUES
 ('UPA Lomba do Pinheiro', 'Estr. João de Oliveira Remião, 7400 – Lomba do Pinheiro, Porto Alegre – RS', '(51) 3289-0030', -30.0917, -51.0946),
 ('UPA Restinga', 'Estr. João Antônio Silveira, 3700 – Restinga, Porto Alegre – RS', '(51) 3289-0040', -30.1679, -51.1621),
 ('UPA Zona Sul', 'Av. Otto Niemeyer, 3780 – Cavalhada, Porto Alegre – RS', '(51) 3289-0050', -30.1062, -51.2437),
-('UPA Moacyr Scliar', 'Rua Moacyr Scliar, s/n – Jardim Carvalho / Zona Norte, Porto Alegre – RS', '(51) 3368-1629', -30.00976, -51.14589),
+('UPA Moacyr Scliar', 'Rua Jerônymo Zelmanovitz, 01 – Jardim Carvalho / Zona Norte, Porto Alegre – RS', '(51) 3368-1629', -30.00976, -51.14589),
 ('UPA Lomba do Pinheiro', 'Estr. João de Oliveira Remião, 5110 – Lomba do Pinheiro, Porto Alegre – RS', '(51) 3289-8245', -30.05327, -51.0968);
 
 --ubs
