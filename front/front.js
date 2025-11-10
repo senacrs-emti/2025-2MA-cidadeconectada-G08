@@ -65,13 +65,10 @@ async function loadUnits(){
     { id:4, nome:'Clínica da Família Sul', tipo:'Clínica', lat:-30.06, lon:-51.21, regiao:'Sul', atendimentosHoje:21 },
     { id:5, nome:'UBS Norte', tipo:'UBS', lat:-29.99, lon:-51.18, regiao:'Norte', atendimentosHoje:45 }
     ];
-    // Simula atraso de fetch
     setTimeout(()=> processData(sample), 250);
     }
     
-    
-    // Inicia ao carregar DOM
-    document.addEventListener('DOMContentLoaded', ()=>{
+        document.addEventListener('DOMContentLoaded', ()=>{
     loadUnits();
     });
 
