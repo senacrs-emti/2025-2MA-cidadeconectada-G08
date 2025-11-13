@@ -1,15 +1,14 @@
 USE geosaudepoa;
-
+SELECT * FROM servicos;
 --hospitais
 INSERT INTO hospitais (nome, endereco, telefone, latitude, longitude) VALUES
-('Hospital de Clínicas de Porto Alegre', 'Rua Ramiro Barcelos, 2350 – Santa Cecília, Porto Alegre – RS', '(51) 3359-8000', -30.0311, -51.2065),
-('Hospital Moinhos de Vento', 'Rua Ramiro Barcelos, 910 – Moinhos de Vento, Porto Alegre – RS', '(51) 3314-3434', -30.0276, -51.2099),
-('Hospital São Lucas da PUCRS', 'Av. Ipiranga, 6690 – Partenon, Porto Alegre – RS', '(51) 3320-3000', -30.0592, -51.1716),
+('Hospital de Clínicas de Porto Alegre', 'Rua Ramiro Barcelos, 2350 – Santa Cecília, Porto Alegre – RS', '(51) 3359-8000', -30.038627694195746, -51.206663233657835),
+('Hospital Moinhos de Vento', 'Rua Ramiro Barcelos, 910 – Moinhos de Vento, Porto Alegre – RS', '(51) 3314-3434',-30.02491222937995, -51.208507847149754),
+('Hospital São Lucas da PUCRS', 'Av. Ipiranga, 6690 – Partenon, Porto Alegre – RS', '(51) 3320-3000', -30.05512998083029, -51.173375247148165),
 ('Hospital Ernesto Dornelles', 'Av. Ipiranga, 1801 – Azenha, Porto Alegre – RS', '(51) 3217-2000', -30.0457, -51.2170),
 ('Hospital Nossa Senhora da Conceição', 'Av. Francisco Trein, 596 – Cristo Redentor, Porto Alegre – RS', '(51) 3357-2000', -30.0086, -51.1639),
 ('Hospital São Lucas – Grupo Hospitalar Conceição', 'Av. Francisco Trein, 326 – Cristo Redentor, Porto Alegre – RS', '(51) 3357-2000', -30.0101, -51.1648),
 ('Hospital de Pronto Socorro (HPS) Porto Alegre', 'Av. Independência, 75 – Centro, Porto Alegre – RS', '(51) 3289-7999', -30.02228, -51.22324),
-('Hospital de Clínicas de Porto Alegre (HCPA)', 'Rua Ramiro Barcelos, 2350 – Santa Cecília / Bom Fim, Porto Alegre – RS', '(51) 3359-8000', -30.03637, -51.18421),
 ('Hospital Vila Nova', 'Rua José Bonifácio, 3000 – Vila Nova, Porto Alegre – RS', '(51) 3245-8900', -30.0281, -51.2354);
 
 --upas
@@ -17,7 +16,6 @@ INSERT INTO upas (nome, endereco, telefone, latitude, longitude) VALUES
 ('UPA Zona Norte', 'Av. Assis Brasil, 6500 – Sarandi, Porto Alegre – RS', '(51) 3289-0000', -30.0048, -51.1595),
 ('UPA Cruzeiro', 'Av. Cruzeiro do Sul, 600 – Cruzeiro, Porto Alegre – RS', '(51) 3289-0010', -30.0924, -51.2292),
 ('UPA Moacyr Scliar (Zona Noroeste)', 'Av. Baltazar de Oliveira Garcia, 2132 – Rubem Berta, Porto Alegre – RS', '(51) 3289-0020', -30.0001, -51.1358),
-('UPA Lomba do Pinheiro', 'Estr. João de Oliveira Remião, 7400 – Lomba do Pinheiro, Porto Alegre – RS', '(51) 3289-0030', -30.0917, -51.0946),
 ('UPA Restinga', 'Estr. João Antônio Silveira, 3700 – Restinga, Porto Alegre – RS', '(51) 3289-0040', -30.1679, -51.1621),
 ('UPA Zona Sul', 'Av. Otto Niemeyer, 3780 – Cavalhada, Porto Alegre – RS', '(51) 3289-0050', -30.1062, -51.2437),
 ('UPA Moacyr Scliar', 'Rua Jerônymo Zelmanovitz, 01 – Jardim Carvalho / Zona Norte, Porto Alegre – RS', '(51) 3368-1629', -30.00976, -51.14589),
@@ -55,42 +53,56 @@ INSERT INTO caps (nome, endereco, telefone, latitude, longitude) VALUES
 ('CAPS AD Cavalhada (CAPS AD III Cavalhada)', 'Av. Cavalhada, 1930 – Cavalhada, Porto Alegre – RS', '(51) 3230-6364', -30.07124, -51.1789),
 ('CAPS Passo a Passo (Jardim São Pedro)', 'Av. Carneiro da Fontoura, 57 – Jardim São Pedro, Porto Alegre – RS', '(51) 3345-1888', -30.0195, -51.1926);
 
+--SERVIÇOS--
 
 INSERT INTO servicos (nome, tipo, bairro, tipo_servico, horario, atendimento_24h) VALUES
 
+-- hospitais
 ('Hospital de Clínicas de Porto Alegre', 'Hospital', 'Santa Cecília', 'Atendimento geral e emergências de alta complexidade', '24 horas', 'Sim'),
-('Hospital Moinhos de Vento', 'Hospital', 'Moinhos de Vento', 'Atendimento geral, maternidade e emergência', '24 horas', 'Sim'),
-('Hospital São Lucas da PUCRS', 'Hospital', 'Partenon', 'Emergências, cirurgias e internações gerais', '24 horas', 'Sim'),
+('Hospital Moinhos de Vento', 'Hospital', 'Moinhos de Vento', 'Atendimento geral, maternidade e urgência', '24 horas', 'Sim'),
+('Hospital São Lucas da PUCRS', 'Hospital', 'Partenon', 'Cirurgias, internação e emergência', '24 horas', 'Sim'),
 ('Hospital Ernesto Dornelles', 'Hospital', 'Azenha', 'Pronto atendimento, cirurgias e maternidade', '24 horas', 'Sim'),
 ('Hospital Nossa Senhora da Conceição', 'Hospital', 'Cristo Redentor', 'Atendimento geral e pronto-socorro', '24 horas', 'Sim'),
-('Hospital São Lucas – Grupo Hospitalar Conceição', 'Hospital', 'Cristo Redentor', 'Emergência e internação geral', '24 horas', 'Sim'),
-('Hospital de Pronto Socorro (HPS) Porto Alegre', 'Hospital', 'Centro', 'Emergências e traumas (acidentes, perfuração por arma de fogo, etc.)', '24 horas', 'Sim'),
+('Hospital São Lucas – Grupo Hospitalar Conceição', 'Hospital','Cristo Redentor', 'Emergência e internação geral', '24 horas', 'Sim'),
+('Hospital de Pronto Socorro (HPS) Porto Alegre', 'Hospital','Centro', 'Pronto-socorro e traumas (acidentes, ferimentos por arma de fogo, etc.)', '24 horas', 'Sim'),
+('Hospital de Clínicas de Porto Alegre (HCPA)', 'Hospital', 'Santa Cecília / Bom Fim', 'Atendimento de alta complexidade', '24 horas', 'Sim'),
 ('Hospital Vila Nova', 'Hospital', 'Vila Nova', 'Emergências e internações gerais', '24 horas', 'Sim'),
 
-
+-- upas
 ('UPA Zona Norte', 'UPA', 'Sarandi', 'Pronto atendimento de urgência e emergência', '24 horas', 'Sim'),
-('UPA Cruzeiro', 'UPA', 'Cruzeiro', 'Emergência e urgência clínica', '24 horas', 'Sim'),
-('UPA Moacyr Scliar (Zona Noroeste)', 'UPA', 'Rubem Berta', 'Atendimento de urgência, traumas e emergências leves', '24 horas', 'Sim'),
-('UPA Lomba do Pinheiro', 'UPA', 'Lomba do Pinheiro', 'Urgência e emergência geral', '24 horas', 'Sim'),
+('UPA Cruzeiro', 'UPA', 'Cruzeiro', 'Urgência e emergência clínica', '24 horas', 'Sim'),
+('UPA Moacyr Scliar (Zona Noroeste)', 'UPA', 'Rubem Berta', 'Atendimento de urgência e traumas leves', '24 horas', 'Sim'),
 ('UPA Restinga', 'UPA', 'Restinga', 'Atendimento de urgência e emergência', '24 horas', 'Sim'),
 ('UPA Zona Sul', 'UPA', 'Cavalhada', 'Emergência e pronto atendimento', '24 horas', 'Sim'),
 ('UPA Moacyr Scliar', 'UPA', 'Jardim Carvalho / Zona Norte', 'Urgência e emergência', '24 horas', 'Sim'),
+('UPA Lomba do Pinheiro', 'UPA', 'Lomba do Pinheiro', 'Urgência e emergência', '24 horas', 'Sim'),
 
-
+-- ubs
 ('UBS Santa Cecília', 'UBS', 'Santa Cecília', 'Atenção básica, consultas e vacinação', '8h às 17h', 'Não'),
 ('UBS IAPI', 'UBS', 'Passo d’Areia', 'Atenção básica e prevenção', '8h às 17h', 'Não'),
-('UBS Navegantes', 'UBS', 'Navegantes', 'Consultas, vacinação e acompanhamento familiar', '8h às 17h', 'Não'),
+('UBS Navegantes', 'UBS', 'Navegantes', 'Atendimento clínico e vacinação', '8h às 17h', 'Não'),
 ('UBS Lomba do Pinheiro', 'UBS', 'Lomba do Pinheiro', 'Atenção primária e saúde da família', '8h às 17h', 'Não'),
-('UBS Restinga', 'UBS', 'Restinga', 'Consultas, exames e vacinação', '8h às 17h', 'Não'),
+('UBS Restinga', 'UBS', 'Restinga', 'Atenção básica e vacinação', '8h às 17h', 'Não'),
 ('UBS Bom Jesus', 'UBS', 'Bom Jesus', 'Atendimento clínico geral e saúde da família', '8h às 17h', 'Não'),
-('UBS Álvaro Difini (Clínica da Família)', 'UBS', 'Restinga', 'Atendimento familiar, gestantes e pediatria', '8h às 17h', 'Não'),
-('UBS Morro Santana (Clínica da Família)', 'UBS', 'Morro Santana', 'Atenção básica e gestantes', '8h às 17h', 'Não'),
-('UBS Campo da Tuca', 'UBS', 'Partenon', 'Atenção básica e vacinação', '8h às 17h', 'Não'),
-('UBS Tristeza', 'UBS', 'Tristeza', 'Consultas e exames de rotina', '8h às 17h', 'Não'),
+('UBS Alvaro Difini (Clínica da Família Álvaro Difini)', 'UBS', 'Restinga', 'Atendimento familiar, gestantes e pediatria', '8h às 17h', 'Não'),
+('UBS José Mauro Ceratti Lopes', 'UBS', 'Restinga', 'Saúde da família e pediatria', '8h às 17h', 'Não'),
+('UBS Campo da Tuca (Clínica da Família)', 'UBS', 'Partenon', 'Atenção básica e vacinação', '8h às 17h', 'Não'),
+('UBS Moab Caldas', 'UBS', 'Santa Tereza', 'Atenção básica e consultas', '8h às 17h', 'Não'),
+('UBS Morro Santana (Clínica da Família Morro Santana)', 'UBS', 'Morro Santana', 'Atenção básica e gestantes', '8h às 17h', 'Não'),
+('UBS Navegantes', 'UBS', 'São Geraldo', 'Atendimento clínico e vacinação', '8h às 17h', 'Não'),
+('UBS Tristeza', 'UBS', 'Tristeza', 'Atenção básica e vacinação', '8h às 17h', 'Não'),
+('UBS Primeiro de Maio', 'UBS', 'Cascata', 'Atenção básica e saúde da família', '8h às 17h', 'Não'),
+('UBS Santa Marta', 'UBS', 'Centro Histórico', 'Atendimento básico e saúde da família', '8h às 17h', 'Não'),
+('US Belém Novo', 'UBS', 'Belém Novo', 'Atenção básica e consultas', '8h às 17h', 'Não'),
+('UBS Modelo', 'UBS', 'Santana', 'Atenção básica e prevenção', '8h às 17h', 'Não'),
+('UBS São Carlos', 'UBS', 'Partenon', 'Atenção básica e consultas', '8h às 17h', 'Não'),
+('UBS Humaitá', 'UBS', 'Humaitá', 'Atenção básica', '8h às 17h', 'Não'),
+('UBS Floresta', 'UBS', 'Floresta', 'Atenção básica e prevenção', '8h às 17h', 'Não'),
 ('UBS Cristal', 'UBS', 'Cristal', 'Atenção básica e pediatria', '8h às 17h', 'Não'),
+('UBS Lomba do Pinheiro (US)', 'UBS', 'Lomba do Pinheiro', 'Atenção básica e atenção familiar', '8h às 17h', 'Não'),
 
-
+-- caps
 ('CAPS Centro (CAPS II Centro)', 'CAPS', 'Centro', 'Saúde mental — atendimento psicológico e psiquiátrico', '8h às 18h', 'Não'),
-('CAPS AD Restinga', 'CAPS', 'Restinga', 'Tratamento para dependência química (álcool e drogas)', '24 horas', 'Sim'),
-('CAPS AD Cavalhada', 'CAPS', 'Cavalhada', 'Atenção psicossocial e dependência química', '24 horas', 'Sim'),
-('CAPS Passo a Passo', 'CAPS', 'Jardim São Pedro', 'Saúde mental e reabilitação psicossocial', '8h às 18h', 'Não');
+('CAPS AD Restinga (CAPS AD III Restinga)', 'CAPS','Restinga', 'Tratamento para dependência química (álcool e drogas)', '24 horas', 'Sim'),
+('CAPS AD Cavalhada (CAPS AD III Cavalhada)', 'CAPS', 'Cavalhada', 'Atenção psicossocial e dependência química', '24 horas', 'Sim'),
+('CAPS Passo a Passo (Jardim São Pedro)', 'CAPS', 'Jardim São Pedro', 'Saúde mental e reabilitação psicossocial', '8h às 18h', 'Não');
