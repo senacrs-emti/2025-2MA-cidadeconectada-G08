@@ -1,7 +1,7 @@
 USE geosaudepoa;
 SELECT * FROM leitos;
 
---hospitais
+--HOSPITAIS
 INSERT INTO hospitais (nome, endereco, telefone, latitude, longitude) VALUES
 ('Hospital de Clínicas de Porto Alegre', 'Rua Ramiro Barcelos, 2350 – Santa Cecília, Porto Alegre – RS', '(51) 3359-8000', -30.038627694195746, -51.206663233657835),
 ('Hospital Moinhos de Vento', 'Rua Ramiro Barcelos, 910 – Moinhos de Vento, Porto Alegre – RS', '(51) 3314-3434',-30.02491222937995, -51.208507847149754),
@@ -12,13 +12,13 @@ INSERT INTO hospitais (nome, endereco, telefone, latitude, longitude) VALUES
 ('Hospital Vila Nova', 'R. Catarino Andreatta, 155 - Vila Nova, Porto Alegre - RS', '(51) 3245-8900', -30.11927093038986, -51.207368931891196),
 ('Hospital Restinga e Extremo-Sul', 'Estr. João Antônio da Silveira, 3700 - Restinga, Porto Alegre - RS', '(51) 3010-4700', -30.142530416140655, -51.1287106165481);
 
---upas
+--UPAS
 INSERT INTO upas (nome, endereco, telefone, latitude, longitude) VALUES
 ('UPA Cruzeiro do Sul', 'R. Prof. Manoel Lobato, 151 - Santa Tereza, Porto Alegre - RS', '(51) 3289-4046', -30.069554950289618, -51.216666789563654),
 ('UPA Moacyr Scliar', 'R. Jerônymo Zelmanovitz, 01 - São Sebastião, Porto Alegre - RS', '(51) 3368-1629', -30.00970513173758, -51.146159420250015),
 ('UPA Lomba do Pinheiro', 'Estr. João de Oliveira Remião, 5110 – Lomba do Pinheiro, Porto Alegre – RS', '(51) 3289-8245', -30.11065458320222, -51.11003019935835);
 
---ubs
+--UBS
 INSERT INTO ubs (nome, endereco, telefone, latitude, longitude) VALUES
 ('UBS Santa Cecília', 'R. São Manoel, 543 Bairro - Santa Cecília, Porto Alegre - RS', '(51) 3359-8685', -30.038516658043708, -51.20504292655783),
 ('UBS IAPI', 'Rua Três de Abril, 90 – Passo d’Areia, Porto Alegre – RS', '(51) 3289-3445', -30.015001896674644, -51.177993920840805),
@@ -41,7 +41,7 @@ INSERT INTO ubs (nome, endereco, telefone, latitude, longitude) VALUES
 ('UBS Cristal', 'R. Cruzeiro do Sul, 2702 - Santa Tereza, Porto Alegre - RS', '(51) 3289-5714', -30.084392091430473, -51.23027542388755),
 ('UBS Lomba do Pinheiro (US)', 'Estr. João de Oliveira Remião, 6111 - Lomba do Pinheiro, Porto Alegre - RS', '(51) 3289-5562', -30.11945942253231, -51.10879195435146),
 
---caps
+--CAPS
 INSERT INTO caps (nome, endereco, telefone, latitude, longitude) VALUES
 ('CAPS Centro (CAPS II Centro)', 'Rua José Bonifácio, 71 – Centro, Porto Alegre – RS', '(51) 3600-7175', -30.039996622910706, -51.21621077035037),
 ('CAPS AD Restinga (CAPS AD III Restinga)', 'Rua João Antônio da Silveira, 440 – Restinga, Porto Alegre – RS', '(51) 3248-7704', -30.163618493083263, -51.151344570988954),
@@ -97,7 +97,8 @@ INSERT INTO servicos (nome, tipo, bairro, tipo_servico, horario, atendimento_24h
 ('CAPS AD Cavalhada (CAPS AD III Cavalhada)', 'CAPS', 'Cavalhada', 'Atenção psicossocial e dependência química', '24 horas', 'Sim'),
 ('CAPS Passo a Passo (Jardim São Pedro)', 'CAPS', 'Jardim São Pedro', 'Saúde mental e reabilitação psicossocial', '8h às 18h', 'Não');
 
--- leitos
+--LEITOS
+
 INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
 ('Hospital de Clínicas de Porto Alegre', 'Hospital', 820, 120),
 ('Hospital Moinhos de Vento', 'Hospital', 380, 60),
@@ -108,11 +109,13 @@ INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
 ('Hospital Vila Nova', 'Hospital', 180, 20),
 ('Hospital Restinga e Extremo-Sul', 'Hospital', 260, 40);
 
+--upas
 INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
 ('UPA Cruzeiro do Sul', 'UPA', 18, 4),
 ('UPA Moacyr Scliar', 'UPA', 22, 5),
 ('UPA Lomba do Pinheiro', 'UPA', 20, 6);
 
+--ubs
 INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
 ('UBS Santa Cecília', 'UBS', 2, 1),
 ('UBS IAPI', 'UBS', 2, 1),
@@ -135,6 +138,7 @@ INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
 ('UBS Cristal', 'UBS', 2, 1),
 ('UBS Lomba do Pinheiro (US)', 'UBS', 2, 1);
 
+--caps
 INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
 ('CAPS Centro', 'CAPS', 10, 3),
 ('CAPS AD Restinga', 'CAPS', 16, 4),
