@@ -1,5 +1,6 @@
 USE geosaudepoa;
-SELECT * FROM servicos;
+SELECT * FROM leitos;
+
 --hospitais
 INSERT INTO hospitais (nome, endereco, telefone, latitude, longitude) VALUES
 ('Hospital de Clínicas de Porto Alegre', 'Rua Ramiro Barcelos, 2350 – Santa Cecília, Porto Alegre – RS', '(51) 3359-8000', -30.038627694195746, -51.206663233657835),
@@ -60,6 +61,7 @@ INSERT INTO servicos (nome, tipo, bairro, tipo_servico, horario, atendimento_24h
 ('Hospital de Pronto Socorro (HPS) Porto Alegre', 'Hospital','Centro', 'Pronto-socorro e traumas (acidentes, ferimentos por arma de fogo, etc.)', '24 horas', 'Sim'),
 ('Hospital Vila Nova', 'Hospital', 'Vila Nova', 'Emergências e internações gerais', '24 horas', 'Sim'),
 ('Hospital Restinga e Extremo-Sul', 'Hospital', 'Restinga', 'Atendimento de urgência e emergência', '24 horas', 'Sim'),
+('Hospital Cristo Redentor', 'Hospital', 'Cristo Redentor', 'Atendimento geral e emergências', '24 horas', 'Sim'),
 
 -- upas
 ('UPA Cruzeiro', 'UPA', 'Cruzeiro', 'Urgência e emergência clínica', '24 horas', 'Sim'),
@@ -94,3 +96,47 @@ INSERT INTO servicos (nome, tipo, bairro, tipo_servico, horario, atendimento_24h
 ('CAPS AD Restinga (CAPS AD III Restinga)', 'CAPS','Restinga', 'Tratamento para dependência química (álcool e drogas)', '24 horas', 'Sim'),
 ('CAPS AD Cavalhada (CAPS AD III Cavalhada)', 'CAPS', 'Cavalhada', 'Atenção psicossocial e dependência química', '24 horas', 'Sim'),
 ('CAPS Passo a Passo (Jardim São Pedro)', 'CAPS', 'Jardim São Pedro', 'Saúde mental e reabilitação psicossocial', '8h às 18h', 'Não');
+
+-- leitos
+INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
+('Hospital de Clínicas de Porto Alegre', 'Hospital', 820, 120),
+('Hospital Moinhos de Vento', 'Hospital', 380, 60),
+('Hospital São Lucas da PUCRS', 'Hospital', 600, 90),
+('Hospital Ernesto Dornelles', 'Hospital', 350, 40),
+('Hospital Nossa Senhora da Conceição', 'Hospital', 700, 110),
+('Hospital de Pronto Socorro (HPS) Porto Alegre', 'Hospital', 200, 25),
+('Hospital Vila Nova', 'Hospital', 180, 20),
+('Hospital Restinga e Extremo-Sul', 'Hospital', 260, 40);
+
+INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
+('UPA Cruzeiro do Sul', 'UPA', 18, 4),
+('UPA Moacyr Scliar', 'UPA', 22, 5),
+('UPA Lomba do Pinheiro', 'UPA', 20, 6);
+
+INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
+('UBS Santa Cecília', 'UBS', 2, 1),
+('UBS IAPI', 'UBS', 2, 1),
+('UBS Navegantes', 'UBS', 3, 1),
+('UBS Lomba do Pinheiro', 'UBS', 2, 1),
+('UBS Restinga', 'UBS', 3, 1),
+('UBS Bom Jesus', 'UBS', 2, 1),
+('UBS Alvaro Difini', 'UBS', 2, 1),
+('UBS José Mauro Ceratti Lopes', 'UBS', 2, 1),
+('UBS Campo da Tuca', 'UBS', 2, 1),
+('UBS Moab Caldas', 'UBS', 2, 1),
+('UBS Morro Santana', 'UBS', 2, 1),
+('UBS Tristeza', 'UBS', 2, 1),
+('UBS Primeiro de Maio', 'UBS', 2, 1),
+('UBS Santa Marta', 'UBS', 1, 1),
+('US Belém Novo', 'UBS', 2, 1),
+('UBS Modelo', 'UBS', 2, 1),
+('UBS São Carlos', 'UBS', 2, 1),
+('UBS Floresta', 'UBS', 1, 1),
+('UBS Cristal', 'UBS', 2, 1),
+('UBS Lomba do Pinheiro (US)', 'UBS', 2, 1);
+
+INSERT INTO leitos (nome, tipo_unidade, total_leitos, leitos_disponiveis) VALUES
+('CAPS Centro', 'CAPS', 10, 3),
+('CAPS AD Restinga', 'CAPS', 16, 4),
+('CAPS AD Cavalhada', 'CAPS', 16, 5),
+('CAPS Passo a Passo', 'CAPS', 8, 2);
