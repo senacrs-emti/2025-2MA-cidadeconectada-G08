@@ -34,6 +34,11 @@ html {
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #343a40;
+    --bg:#0f1724;
+    --card:#0b1220;
+    --accent:#06b6d4;
+    --muted:#9aa4b2;
+    --glass: rgba(255,255,255,0.03);
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -51,13 +56,13 @@ body {
     font-family: var(--font-family-sans-serif);
     margin: 0;
     padding: 0;
-    color: #191817;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
   }
 
   nav {
-    background-color: #36373e;
+    background-color: rgba(11,18,32,0.9);
     height: 70px;
     display: flex;
     align-items: center;
@@ -82,14 +87,17 @@ a:hover{
     text-decoration: none;
     color: #ffe36c;
 }
+
 ul li::after{
     content: '';
     margin-left: 20px;
 }
 
 #linenav1, #linenav2, #linenav3 {
-    height: 4px;
+    font-size: 0px;
+    height: 2px;
     width: 100%;
+    color: transparent;
   }
   
   #linenav1 { background-color: #41c238; }
@@ -107,7 +115,7 @@ header{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 410px;
+    height: 470px;
     width: 100%;
     color: white;
     text-align: center;
@@ -143,18 +151,17 @@ header{
     height: var(--map-height);
     min-height: 320px;
     border-radius: 10px;
-    box-shadow: 2 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 2 2px 6px rgba(0, 0, 0, 0.08);
     display: flex;
+    color: #f8f9fa;
     }
 
-#table-card {
-    position: relative;
-    margin: 0px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+card h-100 {
+    background-color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}    
 
 table {
     width: 100%;
@@ -162,41 +169,6 @@ table {
     max-height: 300px;
 }
 
-
-#cards {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-.card{
-    display: flex;
-    margin: 20px;
-    max-height: 600px;
-}
-
-.card-stats{
-    min-height: 10px;
- }
-
- .card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
- 
- .card-dashboard {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 12px;
-    flex: 1 1 200px;
-    max-width: 240px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  
 
 .div.table-responsive.table-fixed {
    width: 100%;
@@ -233,6 +205,7 @@ footer {
 @media (max-width: 992px) {
     .contmap .row {
       flex-direction: column;
+      background-color: rgb(2, 6, 23);
     }
   
 .contmap .col-lg-7,
@@ -242,3 +215,119 @@ columns:auto;
 }
   }
   
+  container{
+    padding:18px;
+    max-width:1200px;
+    margin:18px auto;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.card{
+  background:var(--card);
+  padding:16px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(2,6,23,0.6);
+}
+
+.card h3{
+  margin:0;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.value{
+  font-weight:700;
+  font-size:28px;
+  margin-top:8px;
+}
+
+.charts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.chart-card{
+  background:var(--card);
+  padding:12px;
+  border-radius:10px;
+}
+
+.table-section{
+  background:var(--card);
+  padding:12px;
+  border-radius:10px;
+}
+
+.table-wrap{
+  overflow:auto;
+  max-height:360px
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  color:#dbe9f2
+}
+
+thead th{
+  position:sticky;
+  top:0;
+  background:rgba(11,18,32,0.9);
+  padding:10px;
+  text-align:left;
+  font-size:13px;
+  color:var(--muted)
+}
+
+tbody td{
+  padding:10px;
+  font-size:14px
+}
+
+#table-card{
+    background-color: rgb(2, 6, 23);
+    margin:0;
+    font-size:16px;
+    color:#ffffff;
+    margin-bottom:10px;
+}
+ #map-card {
+
+    background-color: rgb(2, 6, 23);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border: 0
+ }
+
+.card-body{
+    background-color: rgb(2, 6, 23);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border: 0;
+    scrollbar-color: #f0f7f8 #020617;
+}
+
+td {
+    vertical-align: middle;
+    color: #fff;
+}
+
+main {
+    margin-top: 40px;
+    flex-grow: 1;
+    height: 600px;
+    width: 70%;
+    padding: 10px;
+
+}
+

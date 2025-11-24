@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a297a1ff9b.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -41,26 +42,66 @@
 <header class="text-center">
 </header>
 
-<main class="container my-4">
-    <select id="filtroTipo">
-        <option value="">Todos</option>
-        <option value="UBS">UBS</option>
-        <option value="UPA">UPA</option>
-      </select>      
-<section id="cards">
-    <div class="card-dashboard">
-      <h3>Total de Unidades</h3>
-      <p id="totalUnidades">...</p>
-    </div>
-    <div class="card-dashboard">
-      <h3>Vagas Totais</h3>
-      <p id="vagasTotais">...</p>
-    </div>
-    <div class="card-dashboard">
-      <h3>Taxa de Ocupação Média</h3>
-      <p id="ocupacaoMedia">...</p>
-    </div>
-  </section>
+
+
+<main class="container">
+<section class="cards">
+<div class="card">
+<h3>UPAs</h3>
+<div class="value" id="upasCount">—</div>
+</div>
+
+
+<div class="card">
+<h3>UBSs</h3>
+<div class="value" id="ubsCount">—</div>
+</div>
+
+
+<div class="card">
+<h3>CAPS</h3>
+<div class="value" id="capsCount">—</div>
+</div>
+
+
+<div class="card">
+<h3>Vagas Totais Disponíveis</h3>
+<div class="value" id="totalVagas">—</div>
+</div>
+</section>
+
+
+<section class="charts">
+<div class="chart-card">
+<canvas id="pieChart" aria-label="Gráfico de unidades por tipo"></canvas>
+</div>
+<div class="chart-card">
+<canvas id="barChart" aria-label="Vagas por unidade (top 8)"></canvas>
+</div>
+</section>
+
+
+<section class="table-section">
+<h2>Lista de unidades (último update)</h2>
+<div class="table-wrap">
+<table id="unitsTable">
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Nome</th>
+<th>Endereço</th>
+<th>Vagas</th>
+<th>Última atualização</th>
+</tr>
+</thead>
+<tbody>
+<!-- preenchido por script.js -->
+</tbody>
+</table>
+</div>
+</section>
+
+
 </main>
 
 <iframe src="https://us5.datadoghq.com/graph/embed?token=39452bf36d8d222fc97076be82ac0f43c1d2753a0ca9afb5bb39699ed020b96d&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>
@@ -68,7 +109,7 @@
 <div class="contmap container-fluid">
   <div class="row g-3">
 <div class="col-lg-7">
-  <div class="card h-100">
+  <div id="map-card" class="card h-100">
     <div class="card-body">
       <h5 class="card-title">Mapa — Unidades de Saúde</h5>
       <div id="map"></div>
