@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  </head>
 <body>
 
 <nav>
@@ -37,6 +37,7 @@
 <div class="card">
 <h3>UPAs</h3>
 <div class="value" id="upasCount">—</div>
+<canvas id="chartUPA" aria-label="Mini gráfico de UPA"></canvas>
 </div>
 
 
@@ -58,40 +59,23 @@
 </div>
 </section>
 
-
-<section class="charts">
+<section class="charts" id="chart1">
 <div class="chart-card">
-<canvas id="pieChart" aria-label="Gráfico de unidades por tipo"></canvas>
+<div>
+   <canvas id="UPAschart"></canvas>
 </div>
-<div class="chart-card">
-<canvas id="barChart" aria-label="Vagas por unidade (top 8)"></canvas>
 </div>
-</section>
 
-<section class="table-section">
-<h2>Lista de unidades (último update)</h2>
-<div class="table-wrap">
-<table id="unitsTable">
-<thead>
-<tr>
-<th>Tipo</th>
-<th>Nome</th>
-<th>Endereço</th>
-<th>Vagas</th>
-<th>Última atualização</th>
-</tr>
-</thead>
-<tbody>
-<!-- preenchido por script.js -->
-</tbody>
-</table>
+  <div class="chart-card">
+    <div class="pie-wrapper">
+<canvas id="pieChart" aria-label="Vagas por unidade (top 8)"></canvas>
+</div>
 </div>
 </section>
 
 
 </main>
 
-<iframe src="https://us5.datadoghq.com/graph/embed?token=39452bf36d8d222fc97076be82ac0f43c1d2753a0ca9afb5bb39699ed020b96d&height=200&width=400&legend=true" width="400" height="200" frameborder="0"></iframe>
 
 <div class="contmap container-fluid">
   <div class="row g-3">
@@ -129,16 +113,99 @@
 </div>
     </div>
     
-    
+
+ <footer>Demo</footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('UPAschart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['UPA Cruzeiro', 'UPA Moacyr Scliar', 'UPA Lomba do Pinheiro'],
+      datasets: [{
+        label: 'Número de Vagas [UPAS]',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+    animation: {
+        duration: 900,
+        easing: "easeOutQuad"
+    },
+    responsive: true,
+    plugins: {
+        legend: { position: "bottom" }
+    }
+}
+  });
+
+</script>
 
 
- <footer class="text-center mt-4 mb-4 text-muted small">Demo — dados vindos de <code>/api/unidades</code></footer>
+<script>
+    const pieCtx = document.getElementById("pieChart").getContext("2d");
+        new Chart(pieCtx, {
+        type: "pie",
+        data: {
+            labels: ["UPA", "UBS", "CAPS"],
+            datasets: [{
+              data: [12, 19, 3],
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.7)",   // vermelho
+                    "rgba(54, 162, 235, 0.7)",   // azul claro
+                    "rgba(255, 206, 86, 0.7)"    // amarelo
+                ],
+                borderColor: [
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(54, 162, 235, 1)",
+                    "rgba(255, 206, 86, 1)"
+                ],
+                borderWidth: 2
+            }]
+        },
 
- <script src="AI.js"></script>
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+                duration: 1000,
+                easing: "easeOutBounce"
+            },
+
+            plugins: {
+                legend: {
+                    position: "bottom",
+                    labels: {
+                        font: { size: 14 }
+                    }
+                },
+
+                tooltip: {
+                    callbacks: {
+                        label: function (pieCtx) {
+                            let label = ctx.label || "";
+                            let val = ctx.raw || 0;
+                            let total = cont.upas + cont.ubs + cont.caps;
+                            let pct = ((val / total) * 100).toFixed(1);
+                            return `${label}: ${val} (${pct}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
+</script>
+
  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
  <script src="datamap.js"></script>
  <script src="map.js"></script>
  <script src="dashboard.js"></script>
+    
 
 
 </body>

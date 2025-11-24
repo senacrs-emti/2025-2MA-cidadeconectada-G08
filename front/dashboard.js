@@ -1,126 +1,82 @@
-let pieChart = null;
-let barChart = null;
+let chartUPA = null;
+let chartUBS = null;
+let chartCAPS = null;
+let chartVagas = null;
 
-// =========================
-// 1) Buscar dados da API
-// =========================
-async function fetchDashboardData() {
-    try {
-        const response = await fetch("/api/unidades");
-        if (!response.ok) {
-            throw new Error("Erro ao buscar dados da API.");
-        }
+function renderMiniCharts(data) {
 
-        return await response.json();
-    } catch (err) {
-        console.error("Erro na requisição:", err);
-        return null;
-    }
-}
-
-// =========================
-// 2) Atualizar cards
-// =========================
-function updateCards(data) {
-    document.getElementById("upasCount").innerText = data.contagem.upas;
-    document.getElementById("ubsCount").innerText = data.contagem.ubs;
-    document.getElementById("capsCount").innerText = data.contagem.caps;
-    document.getElementById("totalVagas").innerText = data.total_vagas;
-}
-
-// =========================
-// 3) Atualizar tabela
-// =========================
-function updateTable(units) {
-    const tbody = document.querySelector("#unitsTable tbody");
-    tbody.innerHTML = "";
-
-    units.forEach(unit => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${unit.tipo}</td>
-            <td>${unit.nome}</td>
-            <td>${unit.endereco}</td>
-            <td>${unit.vagas}</td>
-            <td>${unit.atualizado}</td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-// =========================
-// 4) Criar gráfico de pizza
-// =========================
-function renderPieChart(counts) {
-    const ctx = document.getElementById("pieChart").getContext("2d");
-
-    if (pieChart) pieChart.destroy();
-
-    pieChart = new Chart(ctx, {
-        type: "pie",
+    // Mini-chart do card UPAs
+    const ctxUPA = document.getElementById("chartUPA");
+    if (chartUPA) chartUPA.destroy();
+    chartUPA = new Chart(ctxUPA, {
+        type: "doughnut",
         data: {
-            labels: ["UPA", "UBS", "CAPS"],
+            labels: ["UPAs"],
             datasets: [{
-                data: [counts.upas, counts.ubs, counts.caps],
-            }]
+                data: [data.contagem.upas],
+            }],
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: { position: "bottom" }
-            }
+            plugins: { legend: { display: false } },
+            cutout: "70%"
         }
     });
-}
 
-// =========================
-// 5) Criar gráfico de barras
-// =========================
-function renderBarChart(units) {
-    const ctx = document.getElementById("barChart").getContext("2d");
+    // Mini-chart do card UBSs
+    const ctxUBS = document.getElementById("chartUBS");
+    if (chartUBS) chartUBS.destroy();
+    chartUBS = new Chart(ctxUBS, {
+        type: "doughnut",
+        data: {
+            labels: ["UBSs"],
+            datasets: [{
+                data: [data.contagem.ubs],
+            }],
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            cutout: "70%"
+        }
+    });
 
-    if (barChart) barChart.destroy();
+    // Mini-chart do card CAPS
+    const ctxCAPS = document.getElementById("chartCAPS");
+    if (chartCAPS) chartCAPS.destroy();
+    chartCAPS = new Chart(ctxCAPS, {
+        type: "doughnut",
+        data: {
+            labels: ["CAPS"],
+            datasets: [{
+                data: [data.contagem.caps],
+            }],
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            cutout: "70%"
+        }
+    });
 
-    // Ordenar unidades por vagas e pegar top 8
-    const sorted = units
-        .slice()
-        .sort((a, b) => b.vagas - a.vagas)
-        .slice(0, 8);
-
-    barChart = new Chart(ctx, {
+    // Mini-chart do card VAGAS
+    const ctxVagas = document.getElementById("chartVagas");
+    if (chartVagas) chartVagas.destroy();
+    chartVagas = new Chart(ctxVagas, {
         type: "bar",
         data: {
-            labels: sorted.map(u => u.nome),
+            labels: ["Vagas"],
             datasets: [{
-                label: "Vagas disponíveis",
-                data: sorted.map(u => u.vagas),
-            }]
+                data: [data.total_vagas],
+            }],
         },
         options: {
             responsive: true,
-            indexAxis: "y",
-            plugins: {
-                legend: { display: false }
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { display: false },
+                y: { display: false }
             }
         }
     });
 }
-
-// =========================
-// 6) Atualizar tudo
-// =========================
-async function updateDashboard() {
-    const data = await fetchDashboardData();
-    if (!data) return;
-
-    updateCards(data);
-    updateTable(data.unidades);
-    renderPieChart(data.contagem);
-    renderBarChart(data.unidades);
-}
-
-// Primeira execução
-updateDashboard();
-
-// Atualização automática a cada 5 segundos
-setInterval(updateDashboard, 5000);

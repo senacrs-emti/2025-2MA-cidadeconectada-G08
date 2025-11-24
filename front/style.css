@@ -48,8 +48,6 @@ html {
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-
-
 body {
     --map-height: 500px;
     background-color: #203967;
@@ -198,7 +196,7 @@ footer {
     align-items: center;
     color: #f8f1eb;
     width: 100%;
-    margin-top: auto;
+    margin-top: 20px;
   }
   
 
@@ -215,7 +213,7 @@ columns:auto;
 }
   }
   
-  container{
+container {
     padding:18px;
     max-width:1200px;
     margin:18px auto;
@@ -223,8 +221,8 @@ columns:auto;
 
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
   margin-bottom:18px;
 }
 
@@ -233,7 +231,29 @@ columns:auto;
   padding:16px;
   border-radius:10px;
   box-shadow:0 6px 18px rgba(2,6,23,0.6);
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.card {
+  background: var(--card, #ffffff);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px #00000015;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 
 .card h3{
   margin:0;
@@ -250,6 +270,7 @@ columns:auto;
 .charts{
   display:grid;
   grid-template-columns:1fr 1fr;
+  justify-content: space-between;
   gap:12px;
   margin-bottom:18px;
 }
@@ -258,6 +279,7 @@ columns:auto;
   background:var(--card);
   padding:12px;
   border-radius:10px;
+  justify-content: space-between;
 }
 
 .table-section{
@@ -330,4 +352,15 @@ main {
     padding: 10px;
 
 }
+
+.mini-chart {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.card canvas {
+  max-width: 90%;
+  height: auto;
+}
+
 
