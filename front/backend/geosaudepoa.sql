@@ -1,5 +1,4 @@
 USE geosaudepoa;
-SELECT * FROM leitos;
 
 --HOSPITAIS
 INSERT INTO hospitais (nome, endereco, telefone, latitude, longitude) VALUES
