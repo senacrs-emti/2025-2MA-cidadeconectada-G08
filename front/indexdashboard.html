@@ -76,7 +76,7 @@
 <section class="charts" id="chart1">
   <div class="chart-card">
   <div>
-     <canvas id="UPAschart"></canvas>
+     <canvas id="chartline"></canvas>
   </div>
   </div>
   
@@ -130,6 +130,134 @@
  <footer>Demo</footer>
 
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+ <script>
+  const linectx = document.getElementById('chartline').getContext("2d");
+
+  const DATA_COUNT = 13;
+  const labels = [];
+  for (let i = 1; i < DATA_COUNT; ++i) {
+    labels.push(i.toString());
+  }
+
+  const datapoints = [25, 20, 45, 60, 60, 120, 130, 210, 120, 125, 105, 110, 170];
+  const datapoints2 = [15, 10, 25, 40, 40, 80, 90, 140, 80, 85, 65, 50, 130, 121];
+  const datapoints3 = [5, 15, 20, 30, 75, 120, 60, 70, 80, 90, 100, 110, 115, 200];
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Hospital Cristo Redentor',
+        data: datapoints,
+        borderColor: "rgba(255, 99, 132, 0.9)",
+        backgroundColor: "rgba(255, 99, 132, 0.15)",
+        fill: true,
+        cubicInterpolationMode: 'monotone',
+        tension: 0.5
+      },
+      {
+        label: 'Hospital de Pronto Socorro [HPS]',
+        data: datapoints2,
+        borderColor: "rgba(54, 162, 235, 0.9)",
+        backgroundColor: "rgba(54, 162, 235, 0.15)",
+        fill: true,
+        tension: 0.4
+      },
+      {
+        label: 'Hospital Santa Casa',
+        data: datapoints3,
+        borderColor: "rgba(255, 206, 86, 0.9)",
+        backgroundColor: "rgba(255, 206, 86, 0.15)",
+        fill: true,
+        tension: 0.4
+      }
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+
+      animation: {
+        duration: 2500,        
+        easing: 'easeInOutQuart',
+      },
+
+      transitions: {
+        show: {
+          animations: {
+            x: {
+              from: 0
+            },
+            y: {
+              from: 200
+            }
+          }
+        },
+        hide: {
+          animations: {
+            x: {
+              to: 0
+            },
+            y: {
+              to: 200
+            }
+          }
+        }
+      },
+
+      animations: {
+        tension: {
+          duration: 1500,
+          easing: 'easeOutCubic',
+          from: 0.2,
+          to: 0.5,
+          loop: false
+        },
+        y: {
+          duration: 1800,
+          delay: (ctx) => ctx.datasetIndex * 500, 
+        }
+      },
+
+      plugins: {
+        title: {
+          display: true,
+          text: 'Envios de Ambulância no último ano'
+        },
+        legend: {
+          position: "bottom",
+          labels: {
+            padding: 20
+          }
+        }
+      },
+
+      interaction: {
+        intersect: false,
+        mode: 'index'
+      },
+
+      scales: {
+        x: {
+          display: true,
+        },
+        y: {
+          display: true,
+          suggestedMin: 0,
+          suggestedMax: 220
+        }
+      }
+    }
+  };
+
+  new Chart(linectx, config);
+</script>
+
 
 <script>
   const ctx = document.getElementById('UPAschart');
