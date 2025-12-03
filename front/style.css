@@ -142,7 +142,7 @@ header{
 }
 
 .contmap {
-    margin-top: 40% ;
+    margin-top: 17% ;
 }
 
 #map{
@@ -363,4 +363,26 @@ main {
   height: auto;
 }
 
+#piechart {
+  width: 150px !important;
+  height: 150px !important;
+}
 
+.value { 
+  font-weight: bold;
+
+}
+
+#footertext1 {
+    color: #f4f6fc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+.footertext {
+    color: #eb7ab8;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+}

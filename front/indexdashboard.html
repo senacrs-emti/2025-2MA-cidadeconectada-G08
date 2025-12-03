@@ -36,26 +36,25 @@
 <section class="cards">
 <div class="card">
 <h3>UPAs</h3>
-<div class="value" id="upasCount">—</div>
-<canvas id="chartUPA" aria-label="Mini gráfico de UPA"></canvas>
+<div class="value" id="upasCount">60</div>
 </div>
 
 
 <div class="card">
 <h3>UBSs</h3>
-<div class="value" id="ubsCount">—</div>
+<div class="value" id="ubsCount">43</div>
 </div>
 
 
 <div class="card">
 <h3>CAPS</h3>
-<div class="value" id="capsCount">—</div>
+<div class="value" id="capsCount">50</div>
 </div>
 
 
 <div class="card">
 <h3>Vagas Totais Disponíveis</h3>
-<div class="value" id="totalVagas">—</div>
+<div class="value" id="totalVagas">153</div>
 </div>
 </section>
 
@@ -81,9 +80,7 @@
   </div>
   
     <div class="chart-card">
-      <div class="pie-wrapper">
-  <canvas id="pieChart" aria-label="Vagas por unidade (top 8)"></canvas>
-  </div>
+  <canvas id="chartstack" aria-label="Vagas por unidade (top 8)"></canvas>
   </div>
   </section>
 
@@ -127,9 +124,67 @@
     </div>
     
 
- <footer>Demo</footer>
+ <footer>
+  <div>
+    <p id="footertext1">
+      GeoSaúde POA @- 2025
+    </p>
+  <a class="footertext" href="https://github.com/dimitrihtc">github.com/dimitrihtc</a>
+  /
+  <a class="footertext" href="https://github.com/juliamgr">github.com/juliamgr</a>
+  </div>
+ </footer>
 
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script src="https://www.chartjs.org/docs/latest/scripts/utils.js"></script>
+
+ <script>
+  const stackCtx = document.getElementById('chartstack').getContext('2d');
+  
+  const labelsStack = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul"];
+  
+  const dataStack = {
+    labels: labelsStack,
+    datasets: [
+      {
+        label: "UPA Moacyr Scliar",
+        data: [30, 50, 20, 40, 60, 70, 50],
+        backgroundColor: "rgba(255, 99, 132, 0.8)"
+      },
+      {
+        label: "Pronto Atendimento Bom Jesus",
+        data: [20, 40, 10, 30, 50, 40, 30],
+        backgroundColor: "rgba(54, 162, 235, 0.8)"
+      },
+      {
+        label: "HPS - Pronto Socorro",
+        data: [10, 20, 5, 25, 30, 20, 10],
+        backgroundColor: "rgba(75, 192, 192, 0.8)"
+      }
+    ]
+  };
+  
+  new Chart(stackCtx, {
+    type: 'bar',
+    data: dataStack,
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Capacidade Anual de Vagas nas Unidades de Saúde',
+          font: { size: 18, weight: 'bold' },
+          padding: 20
+        },
+        legend: { position: 'bottom' }
+      },
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true }
+      }
+    }
+  });
+  </script>
+  
 
 
  <script>
@@ -181,7 +236,6 @@
     data: data,
     options: {
       responsive: true,
-
       animation: {
         duration: 2500,        
         easing: 'easeInOutQuart',
@@ -227,6 +281,10 @@
       plugins: {
         title: {
           display: true,
+          font: {
+            size: 18,
+            weight: 'bold',
+          },
           text: 'Envios de Ambulância no último ano'
         },
         legend: {
@@ -266,6 +324,9 @@
     data: {
       labels: ['UPA Cruzeiro', 'UPA Moacyr Scliar', 'UPA Lomba do Pinheiro'],
       datasets: [{
+        font: {
+          size: 16,
+        },
         label: 'Número de Vagas [UPAS]',
         data: [12, 19, 3, 5, 2, 3],
         borderWidth: 1
@@ -290,7 +351,7 @@
     const pieCtx = document.getElementById("pieChart").getContext("2d");
         new Chart(pieCtx, {
         type: "pie",
-        data: {
+        data: { 
             labels: ["UPA", "UBS", "CAPS"],
             datasets: [{
               data: [12, 19, 3],
@@ -304,7 +365,7 @@
                     "rgba(54, 162, 235, 1)",
                     "rgba(255, 206, 86, 1)"
                 ],
-                borderWidth: 2
+                borderWidth: 2, 
             }]
         },
 
@@ -314,14 +375,21 @@
             animation: {
                 duration: 1000,
                 easing: "easeOutBounce"
+                
             },
 
             plugins: {
                 legend: {
                     position: "bottom",
-                    labels: {
-                        font: { size: 14 }
-                    }
+                    title: {
+                    display: true,
+                    text: "Unidades de Saúde com vagas disponíveis",
+                    font: {
+                      size: 16,
+                      weight: 'bold',
+                    },
+                    position: "top",
+                  }
                 },
 
                 tooltip: {

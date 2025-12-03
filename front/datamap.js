@@ -5,8 +5,8 @@ const unidadesSaude = [
         bairro: "Jardim Carvalho / Zona Norte", 
         endereco: "Rua Moacyr Scliar, s/n",
         telefone: null,
-        latitude: -30.00976, 
-        longitude: -51.14589 
+        latitude: -30.009602935789736, 
+        longitude: -51.146095049004536
     },
 
     {
@@ -15,8 +15,8 @@ const unidadesSaude = [
        bairro: "Centro", 
        endereco: "Av. Independência, 75", 
        telefone: null, 
-       latitude: -30.02228, 
-       longitude: -51.22324 
+       latitude: -30.03676873266454,
+       longitude: -51.20966072804955
     },
     {
        nome: "Hospital de Clínicas de Porto Alegre (HCPA)",
@@ -202,8 +202,8 @@ const unidadesSaude = [
         bairro: "Vila Nova", 
         endereco: "Rua José Bonifácio, 3000", 
         telefone: null, 
-        latitude: -30.0281, 
-        longitude: -51.2354 },
+        latitude: -30.119224529088804, 
+        longitude: -51.207358204817204 },
     { 
         nome: "US Bom Jesus", 
         tipo: "UBS", 
